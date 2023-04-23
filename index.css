@@ -1,0 +1,19 @@
+body{
+    background-color: #e7f2f6;
+    background-size: cover;
+    padding: 50px;
+    height: 100vh;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.star{
+    color: red;
+}
+.gender{
+    padding-left: 10px;
+}
+#form-page2,#form-page3{
+    display: none;
+}
