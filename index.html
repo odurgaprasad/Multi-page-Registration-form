@@ -13,21 +13,22 @@
 </head>
 <body>
 
-    <div class="bg-container">
+    
+  <div class="bg-container">
       <!-- page1 -->
   
         <!-- Name -->
         <form id="multi-page-form">
           <div id="form-container-box">
           <div class="pb-5" id="form-page1">
-            <label for="name">Name<span class="star">*</span></label><br/>
+            <label for="first_name" for="last_name" >Name<span class="star">*</span></label><br/>
             <div class="row">
                 
               <div class="col">
-                <input type="text" class="form-control" placeholder="First name" id="name" required>
+                <input type="text" class="form-control" placeholder="First name" id="first_name" name="first_name" required>
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Last name" id="name" required>
+                <input type="text" class="form-control" placeholder="Last name" id="last_name" name="last_name" required>
               </div>
               
             </div>
@@ -35,7 +36,7 @@
             <!-- Date of Birth -->
 
             <label for="date" class="pt-3">Date of Birth<span class="star">*</span></label><br/>
-              <input type="date" class="form-control" placeholder="MM/DD/YYYY" id ="date" required>
+              <input type="date" class="form-control" placeholder="MM/DD/YYYY" id ="date" name="date" required>
 
 
               <!-- Mail -->
@@ -47,14 +48,14 @@
               
               <!-- father Name -->
               
-              <label class="pt-3" for="Fathername"> Father's Name<span class="star">*</span></label><br/>
+              <label class="pt-3" for="father_first_name" for="father_last_name"> Father's Name<span class="star">*</span></label><br/>
             <div class="row">
                 
               <div class="col">
-                <input type="text" class="form-control" placeholder="First name" id="Fathername" required>
+                <input type="text" class="form-control" placeholder="First name" id="father_first_name" name="father_first_name" required>
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Last name" id="Fathername" required>
+                <input type="text" class="form-control" placeholder="Last name" id="father_last_name" name="father_last_name" required>
               </div>
               
             </div>
@@ -62,14 +63,14 @@
 
             <!-- Mother name -->
 
-            <label for="Mothername" class="pt-3">Mother's Name<span class="star">*</span></label><br/>
+            <label for="Mother_first_name" for="Mother_last_name" class="pt-3">Mother's Name<span class="star">*</span></label><br/>
             <div class="row">
                 
               <div class="col">
-                <input type="text" class="form-control" placeholder="First name" id="Mothername" required>
+                <input type="text" class="form-control" placeholder="First name" id="mother_first_name" name="mother_first_name"  required>
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Last name" id="Mothername" required>
+                <input type="text" class="form-control" placeholder="Last name" id="mother_last_name" name="mother_last_name" required>
               </div>
               
             </div>
@@ -85,19 +86,19 @@
             <!-- Nationality -->
 
             <label for="Nationality" class="pt-3">Nationality<span class="star">*</span></label><br/>
-              <input type="text" class="form-control" id ="Nationality" required>
+              <input type="text" class="form-control" id ="Nationality" name="Nationality" required>
             
               <!-- Home Address -->
               <label for="Home" class="pt-3">Home Address<span class="star">*</span></label><br/>
-              <input type="text" class="form-control" id ="Home" placeholder="Home Address" required>
+              <input type="text" class="form-control" id ="Home" placeholder="Home Address" name="Home Address" required>
               <div class="row pt-3">
                 
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="City" id="City" required>
+                  <input type="text" class="form-control" placeholder="City" id="City" name="city" required>
                 </div>
                 <div class="col">
                     
-                    <select class="form-select form-control" id="country" name="country">
+                    <select class="form-select form-control" id="country" name="country" value="country">
                         <option selected>country</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Aland Islands</option>
@@ -467,12 +468,21 @@
       <button  class='btn btn-primary' type="button" id="Prev-Button-2">&#65513; Previous</button>
       <button class='btn btn-primary' type="button" id="Next-Button-3">Submit &#65515;</button>
   </div>
-  
 
-  </form> 
+<!-- Success-Box -->
+  <div id="success-Box">
+    <span class="done">&#10004;</span>
+    <p class="success-text">Thank you for your submission</p>
+    <button id="preview-btn" type="preview">Preview</button>
+    <button id="reset-btn" type="reset">Refresh</button>
   </div>
+
+
 </div>
-  
-    <script src="index.js"></script>
+  </form> 
+</div>
+<script src="index.js"></script>
 </body>
+  
+    
 </html>
