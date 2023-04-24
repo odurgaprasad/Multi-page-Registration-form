@@ -11,18 +11,18 @@ window.addEventListener("load",()=>{
   const prev_button1=document.getElementById("Prev-Button-1")
   const prev_button2=document.getElementById("Prev-Button-2")
   const formContainerBox=document.getElementById("form-container-box")
-
+  
   // Handle form submission
   form.addEventListener("submit",(e)=>{
     e.preventDefault();
-    const firstName = document.getElementById("name").value.trim();
-    const lastName = document.getElementById("name").value.trim();
+    const firstName = document.getElementById("first_name").value.trim();
+    const lastName = document.getElementById("last_name").value.trim();
     const dob = document.getElementById("date").value.trim();
     const email = document.getElementById("Email").value.trim();
-    const fatherFirstName = document.getElementById("Fathername").value.trim();
-    const fatherLastName = document.getElementById("Fathername").value.trim();
-    const motherFirstName = document.getElementById("Mothername").value.trim();
-    const motherLastName = document.getElementById("Mothername").value.trim();
+    const fatherFirstName = document.getElementById("father_first_name").value.trim();
+    const fatherLastName = document.getElementById("father_last_name").value.trim();
+    const motherFirstName = document.getElementById("mother_first_name").value.trim();
+    const motherLastName = document.getElementById("mother_last_name").value.trim();
     const gender = document.querySelector('input[name="gender"]:checked');
     const nationality = document.getElementById("Nationality").value.trim();
     const homeAddress = document.getElementById("Home").value.trim();
@@ -44,6 +44,10 @@ window.addEventListener("load",()=>{
     var hscMarksheet = document.getElementById("hscMarksheet");
     var sscMarksheet = document.getElementById("sscMarksheet");
     var semesterMarksheet = document.getElementById("semesterMarksheet");
+    const successBox=document.getElementById("success-Box")
+    const ResetBtn=document.getElementById("reset-btn")
+    const PreviewBtn=doucmnet.getElementById("preview-btn")
+
     const formdata = {
       firstName,
       lastName,
@@ -77,13 +81,10 @@ window.addEventListener("load",()=>{
     };
     localStorage.setItem("formData", JSON.stringify(formdata));
     formContainerBox.style.display="none";
-    previewFormData(formdata);
   });
 
   
   
-  
-
   
 
   first_next_button.addEventListener("click",()=>{
@@ -100,6 +101,7 @@ window.addEventListener("load",()=>{
 
   third_next_button.addEventListener("click",()=>{
     formContainerBox.style.display="none";
+    successBox.style.display="flex"
     
   });
   
@@ -115,38 +117,45 @@ window.addEventListener("load",()=>{
   })
 
 
-const data = JSON.parse(localStorage.getItem("formData"));
-const previewDiv = document.createElement("div");
-previewDiv.innerHTML = `
-  <p>Name: ${data.firstName} ${data.lastName}</p>
-  <p>Date of birth: ${data.dob}</p>
-  <p>Email: ${data.email}</p>
-  <p>Father's name: ${data.fatherFirstName} ${data.fatherLastName}</p>
-  <p>Mother's name: ${data.motherFirstName} ${data.motherLastName}</p>
-  <p>Gender: ${data.gender}</p>
-  <p>Nationality: ${data.nationality}</p>
-  <p>Home address: ${data.homeAddress}</p>
-  <p>City: ${data.city}</p>
-  <p>Country: ${data.country}</p>
-  <p>Telephone (home): ${data.telephoneHome}</p>
-  <p>Mobile: ${data.mobile}</p>
-  <p>HSC Institution: ${data.hscInstitution}</p>
-  <p>HSC Board: ${data.hscBoard}</p>
-  <p>HSC Score: ${data.hscScore}</p>
-  <p>SSC Institution: ${data.sscInstitution}</p>
-  <p>SSC Board: ${data.sscBoard}</p>
-  <p>SSC Score: ${data.sscScore}</p>
-  <p>Currently Pursuing: ${data.currentlyPursuing}</p>
-  <p>Current Institution: ${data.currentInstitution}</p>
-  <p>Overall Score: ${data.overallScore}</p>
-  <p>Current Backlogs: ${data.currentBacklogs}</p>
-  <p>Photo: ${data.photo}</p>
-  <p>HSC Marksheet: ${data.hscMarksheet}</p>
-  <p>SSC Marksheet: ${data.sscMarksheet}</p>
-  <p>Semester Marksheet: ${data.semesterMarksheet}</p>
-`;
-document.body.appendChild(previewDiv);
+  ResetBtn.addEventListener("click",()=>{
+    successBox.style.display="none"
+    formContainerBox.style.display="none"
+    window.location.reload()
+  })
 
+  PreviewBtn.addEventListener("click",()=>{
+    const data = JSON.parse(localStorage.getItem("formData"));
+    successBox.innerHTML = `
+      <p>Name: ${data.firstName} ${data.lastName}</p>
+      <p>Date of birth: ${data.dob}</p>
+      <p>Email: ${data.email}</p>
+      <p>Father's name: ${data.fatherFirstName} ${data.fatherLastName}</p>
+      <p>Mother's name: ${data.motherFirstName} ${data.motherLastName}</p>
+      <p>Gender: ${data.gender}</p>
+      <p>Nationality: ${data.nationality}</p>
+      <p>Home address: ${data.homeAddress}</p>
+      <p>City: ${data.city}</p>
+      <p>Country: ${data.country}</p>
+      <p>Telephone (home): ${data.telephoneHome}</p>
+      <p>Mobile: ${data.mobile}</p>
+      <p>HSC Institution: ${data.hscInstitution}</p>
+      <p>HSC Board: ${data.hscBoard}</p>
+      <p>HSC Score: ${data.hscScore}</p>
+      <p>SSC Institution: ${data.sscInstitution}</p>
+      <p>SSC Board: ${data.sscBoard}</p>
+      <p>SSC Score: ${data.sscScore}</p>
+      <p>Currently Pursuing: ${data.currentlyPursuing}</p>
+      <p>Current Institution: ${data.currentInstitution}</p>
+      <p>Overall Score: ${data.overallScore}</p>
+      <p>Current Backlogs: ${data.currentBacklogs}</p>
+      <p>Photo: ${data.photo}</p>
+      <p>HSC Marksheet: ${data.hscMarksheet}</p>
+      <p>SSC Marksheet: ${data.sscMarksheet}</p>
+      <p>Semester Marksheet: ${data.semesterMarksheet}</p>
+    `;
+    document.body.appendChild(successBox);
+
+  })
 
 })
 
