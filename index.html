@@ -21,7 +21,7 @@
         <form id="multi-page-form">
           <div id="form-container-box">
           <div class="pb-5" id="form-page1">
-            <label for="first_name" for="last_name" >Name<span class="star">*</span></label><br/>
+            <label>Name<span class="star">*</span></label><br/>
             <div class="row">
                 
               <div class="col">
@@ -48,7 +48,7 @@
               
               <!-- father Name -->
               
-              <label class="pt-3" for="father_first_name" for="father_last_name"> Father's Name<span class="star">*</span></label><br/>
+              <label class="pt-3"> Father's Name<span class="star">*</span></label><br/>
             <div class="row">
                 
               <div class="col">
@@ -63,7 +63,7 @@
 
             <!-- Mother name -->
 
-            <label for="Mother_first_name" for="Mother_last_name" class="pt-3">Mother's Name<span class="star">*</span></label><br/>
+            <label class="pt-3">Mother's Name<span class="star">*</span></label><br/>
             <div class="row">
                 
               <div class="col">
@@ -90,7 +90,7 @@
             
               <!-- Home Address -->
               <label for="Home" class="pt-3">Home Address<span class="star">*</span></label><br/>
-              <input type="text" class="form-control" id ="Home" placeholder="Home Address" name="Home Address" required>
+              <input type="text" class="form-control" id ="Home" placeholder="Home Address" name="Home" required>
               <div class="row pt-3">
                 
                 <div class="col">
@@ -360,12 +360,12 @@
 
               <!--  Telephone-Home -->
               <label for="Telephone-Home" class="pt-3">Telephone-Home<span class="star">*</span></label><br/>
-              <input type="text" class="form-control" id ="Telephone-Home" placeholder="### ### ###" required>
+              <input type="text" class="form-control" id ="Telephone-Home" placeholder="### ### ###" name="Telephone-Home" required>
             
 
               <!-- Telephone-Mobile --> 
               <label for="Mobile" class="pt-3">Telephone-Mobile<span class="star">*</span></label><br/>
-              <input type="text" class="form-control" id ="Mobile" placeholder="### ### ###" required>
+              <input type="text" class="form-control" id ="Mobile" placeholder="### ### ###" name="Mobile" required>
 
               <!-- Next-Button -->
               <button class="btn btn-primary mt-3" id="Next-Button-1">Next &#65515;</button>
@@ -385,11 +385,11 @@
     <br>
 
       <label class="pt-3" for="hscInstitution">HSC Institution Name <span class="star">*</span></label><br/>
-      <input class="form-control" type="text" id="hscInstitution" required>
+      <input class="form-control" type="text" id="hscInstitution" name="hscInstitution" required>
       <div class="row pt-3">
         <div class="col">
             <label  for="hscBoard">HSC Board <span class="star">*</span></label>
-            <select class="form-control" id="hsc-board" required>
+            <select class="form-control" id="hscBoard" name="hscBoard" required>
               <option value="cbse">CBSE</option>
               <option value="icse">ICSE</option>
               <option value="state">State Board</option>
@@ -397,7 +397,7 @@
         </div>
         <div class="col">
             <label for="hscScore">HSC Score (%) <span class="star">*</span></label>
-            <input class="form-control" type="number" id="hscScore" min="0" max="100" required>
+            <input class="form-control" type="number" id="hscScore" min="0" max="100" hsc="hscScore" required>
         </div>
      
       </div>
@@ -405,11 +405,11 @@
       <!-- SSC Institution Name -->
 
       <label  class="pt-3" for="sscInstitution">SSC Institution Name <span class="star">*</span></label><br/>
-      <input class="form-control" type="text" id="sscInstitution" required>
+      <input class="form-control" type="text" id="sscInstitution" name="sscInstitution" required>
       <div class="row pt-3">
         <div class="col">
             <label  for="sscBoard">SSC Board <span class="star">*</span></label>
-            <select class="form-control" id="hsc-board" required>
+            <select class="form-control" id="hscBoard" name="sscBoard" required>
               <option value="cbse">CBSE</option>
               <option value="icse">ICSE</option>
               <option value="state">State Board</option>
@@ -417,15 +417,15 @@
         </div>
         <div class="col">
             <label for="sscScore">SSC Score (%) <span class="star">*</span></label>
-            <input class="form-control" type="number" id="sscScore" min="0" max="100" required>
+            <input class="form-control" type="number" id="sscScore" min="0" max="100" name="sscScore" required>
         </div>
      
       </div>
       
       <!-- Currently Pursuing -->
     
-      <label class="pt-3" for="currentlyPursuing">Currently Pursuing <span class="star">*</span></label><br/>
-      <select class="form-control" id="currently-pursuing" required>
+      <label class="pt-3" for="currently-Pursuing">Currently Pursuing <span class="star">*</span></label><br/>
+      <select class="form-control" id="currently-pursuing" name="currently-Pursuing" required>
         <option value="12th">12th</option>
         <option value="graduation">Graduation</option>
         <option value="post-graduation">Post-Graduation</option>
@@ -434,16 +434,16 @@
 
       <!-- Current Educational Institution Name -->
       <label for="currentInstitution">Current Educational Institution Name<span class="star">*</span></label><br/>
-      <input class="form-control" type="text" id="currentInstitution" required><br/>
+      <input class="form-control" type="text" id="currentInstitution" name="currentInstitution" required><br/>
 
       <!-- Overall Score (%) -->
       <label for="overallScore">Overall Score (%)<span class="star">*</span></label><br/>
-      <input class="form-control" type="number" id="overallScore" min="0" max="100" required>
+      <input class="form-control" type="number" id="overallScore" min="0" max="100" name="overallScore" required>
 
       <!-- Current Backlogs (if any) -->
 
       <label class="pt-3"  for="currentBacklogs">Current Backlogs (if any)<span class="star">*</span></label><br/>
-      <input class="form-control pb-3" type="number" id="currentBacklogs" min="0" required><br/>
+      <input class="form-control pb-3" type="number" id="currentBacklogs" min="0" name="currentBacklogs" required><br/>
       <!-- BUttons -->
       
       <button  class='btn btn-primary' type="button" id="Prev-Button-1">&#65513; Previous</button>
@@ -458,27 +458,27 @@
       <h2>Document Upload</h2>
     <br>
       <label for="photo" class="pt-3">Recent Passport Size Photograph<span class="star">*</span></label><br/>
-      <input class="pb-3" type="file" id="photo" accept="image/*" required><br/>
+      <input class="pb-3" type="file" id="photo" accept="image/*" name="photo" required><br/>
       <label for="hscMarksheet" class="pt-3">HSC Mark Sheet<span class="star">*</span></label><br/>
-      <input class="pb-3" type="file" id="hscMarksheet" accept="image/*,.pdf,.doc,.docx" required><br/>
+      <input class="pb-3" type="file" id="hscMarksheet" name="hscMarksheet" accept="image/*,.pdf,.doc,.docx" required><br/>
       <label for="sscMarksheet" class="pt-3">SSC Mark Sheet<span class="star">*</span></label><br/>
-      <input class="pb-3" type="file" id="sscMarksheet" accept="image/*,.pdf,.doc,.docx" required><br/>
+      <input class="pb-3" type="file" id="sscMarksheet" name="sscMarksheet" accept="image/*,.pdf,.doc,.docx" required><br/>
       <label for="semesterMarksheet" class="pt-3">All Semesters Mark Sheet<span class="star">*</span></label><br/>
-      <input class="pb-3" type="file" id="semesterMarksheet" accept=".pdf,.doc,.docx" required><br/>
+      <input class="pb-3" type="file" id="semesterMarksheet" name="semesterMarksheet" accept=".pdf,.doc,.docx" required><br/>
       <button  class='btn btn-primary' type="button" id="Prev-Button-2">&#65513; Previous</button>
       <button class='btn btn-primary' type="button" id="Next-Button-3">Submit &#65515;</button>
   </div>
 
+</div> 
 <!-- Success-Box -->
   <div id="success-Box">
     <span class="done">&#10004;</span>
     <p class="success-text">Thank you for your submission</p>
-    <button id="preview-btn" type="preview">Preview</button>
+    <button id="preview-btn" type="button">Preview</button>
     <button id="reset-btn" type="reset">Refresh</button>
   </div>
 
 
-</div>
   </form> 
 </div>
 <script src="index.js"></script>

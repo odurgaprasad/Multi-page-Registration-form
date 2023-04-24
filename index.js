@@ -11,6 +11,10 @@ window.addEventListener("load",()=>{
   const prev_button1=document.getElementById("Prev-Button-1")
   const prev_button2=document.getElementById("Prev-Button-2")
   const formContainerBox=document.getElementById("form-container-box")
+  const successBox=document.getElementById("success-Box")
+  const ResetBtn=document.getElementById("reset-btn")
+  const PreviewBtn=document.getElementById("preview-btn")
+
   
   // Handle form submission
   form.addEventListener("submit",(e)=>{
@@ -31,23 +35,27 @@ window.addEventListener("load",()=>{
     const telephoneHome = document.getElementById("Telephone-Home").value.trim();
     const mobile = document.getElementById("Mobile").value.trim();
     const hscInstitution = document.getElementById('hscInstitution').value.trim();
-    const hscBoard = document.getElementById('hsc-board').value;
+    const hscBoard = document.getElementById('hscBoard').value;
     const hscScore = parseInt(document.getElementById('hscScore').value.trim());
     const sscInstitution = document.getElementById('sscInstitution').value.trim();
-    const sscBoard = document.getElementById('ssc-board').value;
+    const sscBoard = document.getElementById('sscBoard').value;
     const sscScore = parseInt(document.getElementById('sscScore').value.trim());
     const currentlyPursuing = document.getElementById('currently-pursuing').value;
     const currentInstitution = document.getElementById('currentInstitution').value.trim();
     const overallScore = parseInt(document.getElementById('overallScore').value.trim());
     const currentBacklogs = parseInt(document.getElementById('currentBacklogs').value.trim());
-    var photo = document.getElementById("photo");
-    var hscMarksheet = document.getElementById("hscMarksheet");
-    var sscMarksheet = document.getElementById("sscMarksheet");
-    var semesterMarksheet = document.getElementById("semesterMarksheet");
-    const successBox=document.getElementById("success-Box")
-    const ResetBtn=document.getElementById("reset-btn")
-    const PreviewBtn=doucmnet.getElementById("preview-btn")
-
+    const photo = document.getElementById("photo");
+    const hscMarksheet = document.getElementById("hscMarksheet");
+    const sscMarksheet = document.getElementById("sscMarksheet");
+    const semesterMarksheet = document.getElementById("semesterMarksheet");
+    
+    if (firstName==="" || lastName==="" || dob==="" || email==="" || fatherFirstName==="" || fatherLastName==="" || motherFirstName==="" || motherLastName===""|| gender===""
+    || nationality===""|| homeAddress===""|| city===""|| country===""|| telephoneHome===""|| mobile===""|| hscInstitution===""
+    || hscBoard===""|| hscScore===""|| sscInstitution===""|| sscBoard===""|| sscScore===""|| currentlyPursuing===""|| currentInstitution===""
+    || overallScore===""|| currentBacklogs===""|| photo===""|| hscMarksheet===""|| sscMarksheet===""|| semesterMarksheet===""){
+      alert("please fill the form")
+    }
+    
     const formdata = {
       firstName,
       lastName,
@@ -79,7 +87,7 @@ window.addEventListener("load",()=>{
       sscMarksheet: sscMarksheet.files[0],
       semesterMarksheet: semesterMarksheet.files[0]
     };
-    localStorage.setItem("formData", JSON.stringify(formdata));
+    console.log(localStorage.setItem("formData", JSON.stringify(formdata)));
     formContainerBox.style.display="none";
   });
 
@@ -121,10 +129,12 @@ window.addEventListener("load",()=>{
     successBox.style.display="none"
     formContainerBox.style.display="none"
     window.location.reload()
-  })
+  });
 
-  PreviewBtn.addEventListener("click",()=>{
+  PreviewBtn.addEventListener("click", () => {
     const data = JSON.parse(localStorage.getItem("formData"));
+    const successBox = document.createElement("div");
+    successBox.classList.add("success-box");
     successBox.innerHTML = `
       <p>Name: ${data.firstName} ${data.lastName}</p>
       <p>Date of birth: ${data.dob}</p>
@@ -148,15 +158,11 @@ window.addEventListener("load",()=>{
       <p>Current Institution: ${data.currentInstitution}</p>
       <p>Overall Score: ${data.overallScore}</p>
       <p>Current Backlogs: ${data.currentBacklogs}</p>
-      <p>Photo: ${data.photo}</p>
-      <p>HSC Marksheet: ${data.hscMarksheet}</p>
-      <p>SSC Marksheet: ${data.sscMarksheet}</p>
-      <p>Semester Marksheet: ${data.semesterMarksheet}</p>
     `;
+    // append the successBox to the body of the HTML document
     document.body.appendChild(successBox);
-
-  })
-
+  });
+  
 })
 
 
